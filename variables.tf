@@ -22,6 +22,11 @@ variable "bastion_prefix" {
   default = "192.168.255.224/27"
 }
 
+variable "network_name" {
+  type = string
+  default = "vnet"
+}
+
 variable "address_space" {
   type = list
   default = [ "192.168.0.0/16" ]

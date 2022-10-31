@@ -1,5 +1,5 @@
 resource "azurerm_virtual_network" "hub" {
-  name = "${var.name_prefix}-hub"
+  name = "${var.name_prefix}-${var.network_name}"
   resource_group_name = azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location
   address_space = var.address_space

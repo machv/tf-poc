@@ -61,6 +61,11 @@ resource "azurerm_windows_virtual_machine" "vm" {
 
 resource "azurerm_managed_disk" "datadisk" {
   for_each = local.disks
+
+  depends_on = [
+    azurerm_windows_virtual_machine.vm
+  ]
+
   name = "${local.vm_name}-disk-${each.value.name}"
   location = var.location
   resource_group_name = var.resource_group_name
@@ -71,6 +76,7 @@ resource "azurerm_managed_disk" "datadisk" {
 
 resource "azurerm_virtual_machine_data_disk_attachment" "datadisk_attach" {
   for_each = local.disks
+
   managed_disk_id = azurerm_managed_disk.datadisk[each.key].id
   virtual_machine_id = azurerm_windows_virtual_machine.vm.id
   lun = each.value.lun
@@ -127,6 +133,7 @@ resource "azurerm_mssql_virtual_machine" "mssql" {
 
 resource "azurerm_virtual_machine_extension" "ping" {
   count = var.enable_ping ? 1 : 0
+  
   name = "EnablePing"
   virtual_machine_id = azurerm_windows_virtual_machine.vm.id
   publisher = "Microsoft.Compute"
