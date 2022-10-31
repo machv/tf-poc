@@ -10,7 +10,7 @@ module "vm_web" {
   name = "web${count.index + 1}"
   name_prefix = var.name_prefix
   os_name = "CW1-PoC-WEB${count.index + 1}"
-  size = "Standard_B2ms"   
+  size = var.web_vm_size 
 
   admin_username = var.default_user
   admin_password = var.default_password
@@ -45,7 +45,7 @@ module "vm_pc" {
   name = "pc${count.index + 1}"
   name_prefix = var.name_prefix
   os_name = "CW1-PoC-PC${count.index + 1}"
-  size = "Standard_B2ms"   
+  size = var.pc_vm_size
 
   admin_username = var.default_user
   admin_password = var.default_password
@@ -99,7 +99,7 @@ module "vm_db" {
   name = "db${count.index + 1}"
   name_prefix = var.name_prefix
   os_name = "CW1-PoC-DB${count.index + 1}"
-  size = "Standard_B2ms"   
+  size = var.db_vm_size 
 
   admin_username = var.default_user
   admin_password = var.default_password

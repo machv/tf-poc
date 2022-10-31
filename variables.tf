@@ -73,14 +73,29 @@ variable "web_vm_count" {
   default = 1
 }
 
+variable "web_vm_size" {
+  type = string
+  default = "Standard_B2ms"
+}
+
 variable "pc_vm_count" {
   type = number
   default = 1
 }
 
+variable "pc_vm_size" {
+  type = string
+  default = "Standard_B2ms"
+}
+
 variable "db_vm_count" {
   type = number
   default = 1
+}
+
+variable "db_vm_size" {
+  type = string
+  default = "Standard_B2ms"
 }
 
 variable "enable_ping" {

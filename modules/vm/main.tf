@@ -128,7 +128,7 @@ resource "azurerm_mssql_virtual_machine" "mssql" {
 resource "azurerm_virtual_machine_extension" "ping" {
   count = var.enable_ping ? 1 : 0
   name = "EnablePing"
-  virtual_machine_id = azurerm_windows_virtual_machine.vm[count.index].id
+  virtual_machine_id = azurerm_windows_virtual_machine.vm.id
   publisher = "Microsoft.Compute"
   type = "CustomScriptExtension"
   type_handler_version = "1.9"
