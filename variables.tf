@@ -97,8 +97,3 @@ variable "db_vm_size" {
   type = string
   default = "Standard_B2ms"
 }
-
-variable "enable_ping" {
-  type = bool
-  default = false
-}

@@ -14,8 +14,6 @@ module "vm_web" {
 
   admin_username = var.default_user
   admin_password = var.default_password
-
-  enable_ping = var.enable_ping
 }
 
 resource "azurerm_virtual_machine_extension" "iis" {
@@ -49,8 +47,6 @@ module "vm_pc" {
 
   admin_username = var.default_user
   admin_password = var.default_password
-
-  enable_ping = var.enable_ping
 }
 
 module "vm_db" {
@@ -103,6 +99,4 @@ module "vm_db" {
 
   admin_username = var.default_user
   admin_password = var.default_password
-
-  enable_ping = var.enable_ping 
 }

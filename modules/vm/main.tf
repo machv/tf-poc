@@ -81,7 +81,7 @@ resource "azurerm_mssql_virtual_machine" "mssql" {
   count = var.use_mssql ? 1 : 0
 
   depends_on = [
-    azurerm_managed_disk.datadisk
+    azurerm_virtual_machine_data_disk_attachment.datadisk_attach
   ]
 
   virtual_machine_id = azurerm_windows_virtual_machine.vm.id
@@ -131,7 +131,7 @@ resource "azurerm_virtual_machine_extension" "ping" {
   virtual_machine_id = azurerm_windows_virtual_machine.vm.id
   publisher = "Microsoft.Compute"
   type = "CustomScriptExtension"
-  type_handler_version = "1.9"
+  type_handler_version = "1.10"
 
   settings = <<SETTINGS
   {

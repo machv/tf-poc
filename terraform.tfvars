@@ -8,4 +8,5 @@ db_vm_size = "Standard_B4ms"
 pc_vm_count = 1
 pc_vm_size = "Standard_B2ms"
 deploy_bastion = true
-enable_ping = true
+default_user = "adminuser"
+default_password = "Azure12345678"
