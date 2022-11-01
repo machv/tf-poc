@@ -16,19 +16,7 @@ subnets = [
   {
     name = "db"
     address_prefixes = ["192.168.0.0/24"]
-    rules = [
-      {
-        name = "DenyInternetOutbound"
-        priority = 100
-        direction = "Outbound"
-        access = "Deny"
-        protocol = "*"
-        source_port_range = "*"
-        destination_port_range = "*"
-        source_address_prefix = "*"
-        destination_address_prefix = "Internet"
-      }
-    ]
+    rules = []
   },
   {
     name = "pc"
