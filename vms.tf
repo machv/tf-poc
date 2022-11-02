@@ -88,6 +88,18 @@ module "vm_db" {
         tier = "Premium_LRS"
         size_gb = 500
         lun = 3
+    },
+    {
+        name = "edoc-archive"
+        tier = "Premium_LRS"
+        size_gb = 80
+        lun = 4
+    },
+    {
+        name = "solsup"
+        tier = "Premium_LRS"
+        size_gb = 80
+        lun = 5
     }
   ]
 
